@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <center><h1>EMPLOYEE MANAGEMENT SYSTEM</h1></center>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://localhost:8000/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show">List of Employees</a>
+            </li>
+            
+            
+          </ul>
+          
+        </div>
+      </nav>
+    <br>
+    <br>
+    <div class="container">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Control</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% employees.forEach((employee)=>{%>
+                <tr>
+                    <td><%- employee._id %></td>
+                    <td><%- employee.name %></td>
+                    <td><%- employee.email %></td>
+                    <td>
+                        <a href="/edit/<%= employee._id %>">
+                            <span class="blue">Update  </span>
+                        </a>
+                        <a href="/delete/<%= employee._id %>">
+                            <span class="blue">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+             <%   }) %>
+          
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
